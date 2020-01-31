@@ -1,5 +1,8 @@
 # React text Typing
 
+
+[![CircleCI](https://circleci.com/gh/Oda2/react-text-typing.svg?style=shield)](https://circleci.com/gh/Oda2/react-text-typing)
+[![Coverage Status](https://coveralls.io/repos/github/Oda2/react-text-typing/badge.svg?branch=master)](https://coveralls.io/github/Oda2/react-text-typing?branch=master)
 [![npm version](https://badge.fury.io/js/react-text-typing.svg)](https://badge.fury.io/js/react-text-typing)
 [![GitHub license](https://img.shields.io/github/license/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/issues)

@@ -1,6 +1,11 @@
 # React text Typing
 
-[![npm version](https://badge.fury.io/js/react-text-typing.svg)](https://www.npmjs.com/package/react-text-typing) &bull; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+[![npm version](https://badge.fury.io/js/react-text-typing.svg)](https://badge.fury.io/js/react-text-typing)
+[![GitHub license](https://img.shields.io/github/license/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/stargazers)
+
+[![Edit admiring-sun-5qry6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/admiring-sun-5qry6?fontsize=14&hidenavigation=1&theme=dark)
 
 ## Installation
 

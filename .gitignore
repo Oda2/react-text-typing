@@ -29,6 +29,10 @@ typings/
 
 # testing
 /coverage
+__benchmarks__
+_SpecRunner.html
+/.nyc_output
+size-snapshot.json
 
 # production
 /dist
@@ -72,9 +76,16 @@ pids
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
+# Yarn only
+package-lock.json
+
 # Other
 .idea/
 *.sublime*
+.module-cache
+chrome-user-data
+*.swo
+*.iml
 psd
 thumb
 sketch

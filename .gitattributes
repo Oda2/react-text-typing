@@ -1,0 +1,21 @@
+* text=auto
+
+*.js eol=lf
+*.jsx eol=lf
+*.ts eol=lf
+*.tsx eol=lf
+*.json eol=lf
+*.css eol=lf
+*.scss eol=lf
+*.html eol=lf
+*.svg eol=lf
+
+*.js encoding=UTF-8
+*.jsx encoding=UTF-8
+*.ts encoding=UTF-8
+*.tsx encoding=UTF-8
+*.json encoding=UTF-8
+*.css encoding=UTF-8
+*.scss encoding=UTF-8
+*.html encoding=UTF-8
+*.svg encoding=UTF-8

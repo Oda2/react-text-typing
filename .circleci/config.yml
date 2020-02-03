@@ -68,7 +68,7 @@ workflows:
       - build
       - lint
       - test:
-          required:
+          requires:
             - build
             - lint
       - deploy:

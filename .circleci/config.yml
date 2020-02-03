@@ -5,33 +5,38 @@ defaults: &defaults
   docker:
     - image: circleci/node:dubnium
 
+commands:
+  install_js:
+    steps:
+      - run:
+        name: Show environment
+        command: |
+          node --version
+          yarn --version
+      - run:
+        name: Install dependencies
+        command: yarn
+
 jobs:
   build:
     <<: *defaults
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - install_js
       - run: yarn build
+
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - install_js
+      - run: yarn lint
+
   test:
     <<: *defaults
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+      - install_js
       - run: yarn install
       - save_cache:
           paths:
@@ -39,17 +44,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn coverage
       - run: yarn coveralls
+
   deploy:
     <<: *defaults
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: yarn install
+      - install_js
       - save_cache:
           paths:
             - node_modules
@@ -60,9 +60,10 @@ jobs:
       - run:
           name: Publish package
           command: npm publish
+
 workflows:
   version: 2
-  build_and_test:
+  pipeline:
     jobs:
       - build
       - test
@@ -75,3 +76,7 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /.*/
+
+notify:
+  webhooks:
+    - url: http://app.fossa.io/hooks/circleci

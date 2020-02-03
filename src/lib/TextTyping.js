@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { createUseStyles } from 'react-jss';
 
 const TextTyping = ({
-    text,
-    showBlink,
-    component: Component = 'h1',
-    ...props
+  text,
+  showBlink,
+  component: Component = 'h1',
+  ...props
 }) => {
   const classes = useStyles({ ...props });
 
@@ -68,13 +68,13 @@ TextTyping.propTypes = {
   /** */
   colorTyping: PropTypes.string,
   /** */
-  showBlink: PropTypes.bool,
-}
+  showBlink: PropTypes.bool
+};
 
 TextTyping.defaultProps = {
   showBlink: true,
   colorText: '#FFF',
   colorTyping: '#0075D7'
-}
+};
 
 export default TextTyping;

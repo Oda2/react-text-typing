@@ -19,7 +19,7 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.1.0",
+    "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
     "coveralls": "^3.0.9",
     "prop-types": "^15.7.2",

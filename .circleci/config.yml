@@ -66,10 +66,13 @@ workflows:
   pipeline:
     jobs:
       - build
-      - test
+      - lint
+      - test:
+        required:
+          - build
+          - lint
       - deploy:
           requires:
-            - build
             - test
           filters:
             tags:

@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   working_directory: ~/repo
@@ -9,13 +9,13 @@ commands:
   install_js:
     steps:
       - run:
-        name: Show environment
-        command: |
-          node --version
-          yarn --version
+          name: Show environment
+          command: |
+            node --version
+            yarn --version
       - run:
-        name: Install dependencies
-        command: yarn
+          name: Install dependencies
+          command: yarn install
 
 jobs:
   build:
@@ -68,9 +68,9 @@ workflows:
       - build
       - lint
       - test:
-        required:
-          - build
-          - lint
+          required:
+            - build
+            - lint
       - deploy:
           requires:
             - test

@@ -1,12 +1,21 @@
 {
   "name": "react-text-typing",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "homepage": "https://renato-oda2.gitbook.io/react-text-typing",
   "license": "MIT",
   "author": {
     "name": "Renato Oda",
     "email": "renato.oda2@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git++https://github.com/Oda2/react-text-typing"
+  },
+  "keywords": ["react", "library"],
+  "bugs": {
+    "url": "https://github.com/oda2/react-text-typing/issues"
   },
   "files": [
     "dist"

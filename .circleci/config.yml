@@ -24,6 +24,10 @@ jobs:
       - checkout
       - install_js
       - run: yarn build
+      - save_cache:
+          paths:
+            - dist
+          key: v1-dependencies-{{ checksum "package.json" }}
 
   lint:
     <<: *defaults
@@ -31,6 +35,11 @@ jobs:
       - checkout
       - install_js
       - run: yarn lint
+      - save_cache:
+          paths:
+            - node_modules
+            - coverage
+          key: v1-dependencies-{{ checksum "package.json" }}
 
   test:
     <<: *defaults
@@ -38,12 +47,13 @@ jobs:
       - checkout
       - install_js
       - run: yarn install
+      - run: yarn coverage
+      - run: yarn coveralls
       - save_cache:
           paths:
             - node_modules
+            - coverage
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn coverage
-      - run: yarn coveralls
 
   deploy:
     <<: *defaults

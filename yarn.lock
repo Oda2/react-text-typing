@@ -2490,6 +2490,11 @@ chokidar@^2.0.2, chokidar@^2.1.8:
   optionalDependencies:
     fsevents "^1.2.7"
 
+choose-port@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/choose-port/-/choose-port-0.1.0.tgz#a0221d42121831bafbc1c8e82c9068b020ba611d"
+  integrity sha512-VoB6ZNRZJQ1EkwC7eo0eI8ENFJZ72FxOLu690X9q43eTVN+AXfZxsQKxpGEuhcpdq/VkSFXFoo2Ybj21KWE4cw==
+
 chownr@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.3.tgz#42d837d5239688d55f303003a508230fa6727142"
@@ -4381,7 +4386,7 @@ fs-constants@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad"
   integrity sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==
 
-fs-extra@8.1.0:
+fs-extra@8.1.0, fs-extra@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
   integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
@@ -7948,10 +7953,10 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dependency-scripts@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-0.5.0.tgz#f8397aced4ca8ec6a347c95efb45f09abe3d73ae"
-  integrity sha512-t/f9emGuScp9WawOCNicht+MMCt7UNSmPeYYVOqBwPOOODJeJ/WqIJvcSg8yE4b6qYJTkxoqvi1srpouxFARLQ==
+react-dependency-scripts@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-0.6.0.tgz#2801daab2e4eda93969bc59f4d03ab883a7bdc83"
+  integrity sha512-Uepwc7vZdstCmQ7BSkSn80dhGriVLYlErYv5gqnkBzJQQY+QMwK/Sc/AKf0QjK5WClicaX+qEbd2vidb35wVPw==
   dependencies:
     "@babel/core" "^7.8.3"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -7962,8 +7967,10 @@ react-dependency-scripts@^0.5.0:
     babel-loader "^8.0.6"
     babel-plugin-module-resolver "^4.0.0"
     babel-preset-react-app "^9.1.0"
+    choose-port "^0.1.0"
     css-loader "^3.4.2"
     file-loader "^5.0.2"
+    fs-extra "^8.1.0"
     html-webpack-plugin "^3.2.0"
     image-webpack-loader "^6.0.0"
     jest "^25.1.0"

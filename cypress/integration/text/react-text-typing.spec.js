@@ -9,4 +9,12 @@ context('React Text Typing', () => {
     cy.get('h1').should('not.be.undefined');
     cy.get('h1').contains('Example Text');
   });
+
+  it('Should do effect', () => {
+    cy.get('h1').should('not.be.undefined');
+    cy.wait(2000);
+    cy.get('h1').should('have.css', 'animation');
+    cy.get('h1').should('have.css', 'position', 'relative');
+    cy.get('h1').should('have.css', 'color', 'rgb(255, 255, 255)');
+  });
 });

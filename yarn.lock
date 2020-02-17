@@ -18,7 +18,7 @@
     invariant "^2.2.4"
     semver "^5.5.0"
 
-"@babel/core@7.8.4", "@babel/core@^7.1.0", "@babel/core@^7.7.5", "@babel/core@^7.8.3":
+"@babel/core@7.8.4", "@babel/core@^7.1.0", "@babel/core@^7.7.5", "@babel/core@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.8.4.tgz#d496799e5c12195b3602d0fddd77294e3e38e80e"
   integrity sha512-0LiLrB2PwrVI+a2/IEskBopDYSd8BCb3rOvH7D5tzoWd696TBEduBvuLVm4Nx6rltrLZqvI3MCalB2K2aVzQjA==
@@ -758,7 +758,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/preset-env@7.8.4", "@babel/preset-env@^7.8.3":
+"@babel/preset-env@7.8.4", "@babel/preset-env@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.8.4.tgz#9dac6df5f423015d3d49b6e9e5fa3413e4a72c4e"
   integrity sha512-HihCgpr45AnSOHRbS5cWNTINs0TwaR8BS8xIIH+QwiW8cKL0llV91njQMpeMReEPVs+1Ao0x3RLEBLtt1hOq4w==
@@ -1953,7 +1953,7 @@ babel-preset-jest@^25.1.0:
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     babel-plugin-jest-hoist "^25.1.0"
 
-babel-preset-react-app@^9.1.0:
+babel-preset-react-app@^9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/babel-preset-react-app/-/babel-preset-react-app-9.1.1.tgz#d1ceb47cbe48b285fdd5c562c54c432ed5a41e0e"
   integrity sha512-YkWP2UwY//TLltNlEBRngDOrYhvSLb+CA330G7T9M5UhGEMWe+JK/8IXJc5p2fDTSfSiETf+PY0+PYXFMix81Q==
@@ -3454,6 +3454,11 @@ domutils@^1.5.1, domutils@^1.7.0:
   dependencies:
     dom-serializer "0"
     domelementtype "1"
+
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 download@^6.2.2:
   version "6.2.5"
@@ -7206,10 +7211,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-open@^7.0.0:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/open/-/open-7.0.1.tgz#259a6c2097da6b95c596a2734f2ed05643c432b8"
-  integrity sha512-/fVm742AZt6bZ3NpbmBzGpZksDiGbo+xz8RylegKSAnTCgT5u5tvJe0cre3QxICphqHhJHc0OFtFyvU7rNx8+Q==
+open@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/open/-/open-7.0.2.tgz#fb3681f11f157f2361d2392307548ca1792960e8"
+  integrity sha512-70E/pFTPr7nZ9nLDPNTcj3IVqnNvKuP4VsBmoKV9YGTnChe0mlS3C4qM7qKarhZ8rGaHKLfo+vBTHXDp6ZSyLQ==
   dependencies:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
@@ -7953,20 +7958,20 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dependency-scripts@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-0.6.0.tgz#2801daab2e4eda93969bc59f4d03ab883a7bdc83"
-  integrity sha512-Uepwc7vZdstCmQ7BSkSn80dhGriVLYlErYv5gqnkBzJQQY+QMwK/Sc/AKf0QjK5WClicaX+qEbd2vidb35wVPw==
+react-dependency-scripts@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-0.6.1.tgz#7410b7d34da1d7cd7f71cb9fa2b4fba8bbdb5ff9"
+  integrity sha512-2uZg4/wYZx8i+nnooaZj/KD1/kWhvrwpishk9LB6dQxK1T2+CGxZ/U+XokYJaBGHSCtIqhJySk6n+u2KsbmN5A==
   dependencies:
-    "@babel/core" "^7.8.3"
+    "@babel/core" "^7.8.4"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
     "@babel/plugin-transform-runtime" "^7.8.3"
-    "@babel/preset-env" "^7.8.3"
+    "@babel/preset-env" "^7.8.4"
     "@babel/preset-react" "^7.8.3"
     babel-jest "^25.1.0"
     babel-loader "^8.0.6"
     babel-plugin-module-resolver "^4.0.0"
-    babel-preset-react-app "^9.1.0"
+    babel-preset-react-app "^9.1.1"
     choose-port "^0.1.0"
     css-loader "^3.4.2"
     file-loader "^5.0.2"
@@ -7974,11 +7979,12 @@ react-dependency-scripts@^0.6.0:
     html-webpack-plugin "^3.2.0"
     image-webpack-loader "^6.0.0"
     jest "^25.1.0"
-    open "^7.0.0"
+    open "^7.0.2"
     sass-loader "^8.0.2"
     style-loader "^1.1.3"
-    webpack "^4.41.5"
-    webpack-dev-server "^3.10.1"
+    variables-loader "^0.2.0"
+    webpack "^4.41.6"
+    webpack-dev-server "^3.10.3"
 
 react-display-name@^0.2.4:
   version "0.2.5"
@@ -9803,6 +9809,14 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+variables-loader@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/variables-loader/-/variables-loader-0.2.0.tgz#142d5e3824e80685d64f4cb091ef1535614c1619"
+  integrity sha512-o0dCEcwJyGzloBhcEnm0VhhY40cC93Z5yTWY3pDGUa51NC3y+0YWf68xeZn1h8vP8XjI4700wtiPfRONU4hxtg==
+  dependencies:
+    dotenv "^8.2.0"
+    loader-utils "^1.2.3"
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
@@ -9882,10 +9896,10 @@ webpack-dev-middleware@^3.7.2:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3.10.1:
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.10.2.tgz#3403287d674c7407aab6d9b3f72259ecd0aa0874"
-  integrity sha512-pxZKPYb+n77UN8u9YxXT4IaIrGcNtijh/mi8TXbErHmczw0DtPnMTTjHj+eNjkqLOaAZM/qD7V59j/qJsEiaZA==
+webpack-dev-server@^3.10.3:
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.10.3.tgz#f35945036813e57ef582c2420ef7b470e14d3af0"
+  integrity sha512-e4nWev8YzEVNdOMcNzNeCN947sWJNd43E5XvsJzbAL08kGc2frm1tQ32hTJslRS+H65LCb/AaUCYU7fjHCpDeQ==
   dependencies:
     ansi-html "0.0.7"
     bonjour "^3.5.0"
@@ -9937,10 +9951,10 @@ webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.41.5:
-  version "4.41.5"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.5.tgz#3210f1886bce5310e62bb97204d18c263341b77c"
-  integrity sha512-wp0Co4vpyumnp3KlkmpM5LWuzvZYayDwM2n17EHFr4qxBBbRokC7DJawPJC7TfSFZ9HZ6GsdH40EBj4UV0nmpw==
+webpack@^4.41.6:
+  version "4.41.6"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.6.tgz#12f2f804bf6542ef166755050d4afbc8f66ba7e1"
+  integrity sha512-yxXfV0Zv9WMGRD+QexkZzmGIh54bsvEs+9aRWxnN8erLWEOehAKUTeNBoUbA6HPEZPlRo7KDi2ZcNveoZgK9MA==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"

@@ -4,10 +4,10 @@ build:
   steps:
     - script:
       name: install dependencies
-      code:
+      code: |
         - yarn install
 
     - script:
         name: build project
-        code:
+        code: |
           - yarn build

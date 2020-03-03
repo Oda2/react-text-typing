@@ -8,6 +8,6 @@ build:
         - yarn install
 
     - script:
-        name: echo nodejs information
-        code: |
+        name: build project
+        code:
           - yarn build

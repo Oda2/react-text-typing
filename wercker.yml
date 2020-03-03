@@ -1,4 +1,4 @@
-box: node
+box: node:dubnium
 
 build:
   steps:

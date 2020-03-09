@@ -11,9 +11,3 @@ build:
       name: build project
       code: |
         yarn build
-
-    - script:
-      name: publish
-      code: |
-        echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-        npm publish

@@ -7498,10 +7498,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-open@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/open/-/open-7.0.2.tgz#fb3681f11f157f2361d2392307548ca1792960e8"
-  integrity sha512-70E/pFTPr7nZ9nLDPNTcj3IVqnNvKuP4VsBmoKV9YGTnChe0mlS3C4qM7qKarhZ8rGaHKLfo+vBTHXDp6ZSyLQ==
+open@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/open/-/open-7.0.3.tgz#db551a1af9c7ab4c7af664139930826138531c48"
+  integrity sha512-sP2ru2v0P290WFfv49Ap8MF6PkzGNnGlAwHweB4WR4mr5d2d0woiCluUeJ218w7/+PmoBy9JmYgD5A4mLcWOFA==
   dependencies:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
@@ -8255,10 +8255,10 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dependency-scripts@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-1.0.1.tgz#8ccbfdba0832211dee3702b49a186cf3d561f56f"
-  integrity sha512-JCbcNRm0+Xbk8L29n3QpDHKaXA/zV7IgoObdvP1x1m9bTA8HRPhhMA4uWP34Ay+AXp3I2wXnaBmgIl4M7uLc0g==
+react-dependency-scripts@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-dependency-scripts/-/react-dependency-scripts-1.0.2.tgz#87c65d7421b63368ad5620f57ea204a6df0ccaf4"
+  integrity sha512-9wQlx1Yinp8fkjCSrYq7cVY4ZSLWMA0qzvz16zLHgw5CFTwRzixAf9vGgvfM/qhpMR4etliV2sbb7M6fCqINaA==
   dependencies:
     "@babel/core" "^7.8.7"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -8276,10 +8276,10 @@ react-dependency-scripts@^1.0.1:
     html-webpack-plugin "^3.2.0"
     image-webpack-loader "^6.0.0"
     jest "^25.1.0"
-    open "^7.0.2"
+    open "^7.0.3"
     sass-loader "^8.0.2"
     style-loader "^1.1.3"
-    variables-loader "^0.2.0"
+    variables-loader "^0.2.2"
     webpack "^4.42.0"
     webpack-dev-server "^3.10.3"
 
@@ -10126,10 +10126,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-variables-loader@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/variables-loader/-/variables-loader-0.2.0.tgz#142d5e3824e80685d64f4cb091ef1535614c1619"
-  integrity sha512-o0dCEcwJyGzloBhcEnm0VhhY40cC93Z5yTWY3pDGUa51NC3y+0YWf68xeZn1h8vP8XjI4700wtiPfRONU4hxtg==
+variables-loader@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/variables-loader/-/variables-loader-0.2.2.tgz#e18cf6a3787d7136d02053ffb75f0c62b849ceb1"
+  integrity sha512-s4jaWUJntJgeJIQAUgOYPsXowceFG+C+zeGk6oJ5pYLf3n51Uh79GDqsLmjjymz97vF3Rhp81ZLMNyCq+HmTtA==
   dependencies:
     dotenv "^8.2.0"
     loader-utils "^1.2.3"

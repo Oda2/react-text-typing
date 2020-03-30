@@ -33,7 +33,7 @@
     "cypress": "$(yarn bin)/cypress"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/jest-dom": "^5.3.0",
     "@testing-library/react": "^9.5.0",
     "babel-eslint": "^10.1.0",
     "coveralls": "^3.0.9",

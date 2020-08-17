@@ -59,7 +59,7 @@
     ]
   },
   "dependencies": {
-    "react-jss": "^10.3.0"
+    "react-jss": "^10.4.0"
   },
   "jest": {
     "testMatch": [

@@ -43,7 +43,7 @@
     "eslint-plugin-react": "^7.20.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dependency-scripts": "^1.0.5",
+    "react-dependency-scripts": "^1.0.6",
     "react-dom": "^16.13.1"
   },
   "browserslist": {

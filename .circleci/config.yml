@@ -12,10 +12,10 @@ commands:
           name: Show environment
           command: |
             node --version
-            yarn --version
+            pnpm --version
       - run:
           name: Install dependencies
-          command: yarn install
+          command: pnpm install
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn build
+      - run: pnpm build
       - save_cache:
           paths:
             - dist
@@ -34,7 +34,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn lint
+      - run: pnpm lint
       - save_cache:
           paths:
             - node_modules
@@ -46,9 +46,9 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn install
-      - run: yarn coverage
-      - run: yarn coveralls
+      - run: pnpm install
+      - run: pnpm coverage
+      - run: pnpm coveralls
       - save_cache:
           paths:
             - node_modules

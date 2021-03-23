@@ -11,6 +11,7 @@ commands:
       - run:
           name: Show environment
           command: |
+            npm install --prefix=$HOME/.local --global pnpm
             node --version
             pnpm --version
       - run:

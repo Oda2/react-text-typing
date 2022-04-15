@@ -3,7 +3,7 @@ version: 2.1
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:dubnium
+    - image: cimg/node:16.14.1
 
 commands:
   install_js:
@@ -11,12 +11,11 @@ commands:
       - run:
           name: Show environment
           command: |
-            npm install --prefix=$HOME/.local --global pnpm
             node --version
-            pnpm --version
+            yarn --version
       - run:
           name: Install dependencies
-          command: pnpm install
+          command: yarn install
 
 jobs:
   build:
@@ -24,7 +23,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: pnpm build
+      - run: yarn build
       - save_cache:
           paths:
             - dist
@@ -35,7 +34,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: pnpm lint
+      - run: yarn lint
       - save_cache:
           paths:
             - node_modules
@@ -47,9 +46,9 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: pnpm install
-      - run: pnpm coverage
-      - run: pnpm coveralls
+      - run: yarn install
+      - run: yarn coverage
+      - run: yarn coveralls
       - save_cache:
           paths:
             - node_modules

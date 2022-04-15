@@ -2,8 +2,7 @@
   "extends": ["plugin:react/recommended", "plugin:jsx-a11y/recommended"],
   "settings": {
     "react": {
-      "pragma": "React",
-      "version": "16.4.1"
+      "version": "detect"
     }
   },
   "plugins": ["react", "jsx-a11y"],
@@ -33,11 +32,17 @@
     "object-curly-spacing": ["error", "always"],
     "jsx-quotes": ["error", "prefer-double"]
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "requireConfigFile": false,
+    "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
-    }
+      "jsx": true,
+      "legacyDecorators": true
+    },
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+   }
   },
   "globals": {
     "Event": true

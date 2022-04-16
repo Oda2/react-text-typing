@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { createUseStyles } from 'react-jss';
 
-const TextTyping = ({ text, showBlink, component: Component, ...props }) => {
+const TextTyping = ({ text, showBlink, speed, component: Component, ...props }) => {
   const classes = useStyles({ ...props });
+  const [internalText, setInternalText] = useState('');
+  const timer = useRef(null);
+
+  useEffect(() => {
+    let typing = text.split('');
+
+    timer.current = setInterval(() => {
+      if (typing.length > 0) {
+        const next = typing.shift();
+        setInternalText((value) => value + next);
+      } else {
+        clearInterval(timer.current);
+      }
+    }, speed);
+
+    return () => {};
+  }, [text]);
 
   return (
     <Component
       className={`${classes.text} ${showBlink ? classes.blink : ''}`}
-      data-text={text}
+      data-text={internalText}
       {...props}
     >
-      {text}
+      {internalText}
     </Component>
   );
 };
@@ -54,23 +71,26 @@ const useStyles = createUseStyles({
 });
 
 TextTyping.propTypes = {
-  /** */
+  /** Text to be demonstrated in the component */
   text: PropTypes.string.isRequired,
-  /** */
+  /** Component to be used internally in the component */
   component: PropTypes.elementType,
-  /** */
+  /** Text color */
   colorText: PropTypes.string,
-  /** */
+  /** Background fill color */
   colorTyping: PropTypes.string,
-  /** */
-  showBlink: PropTypes.bool
+  /** Show flashing text icon */
+  showBlink: PropTypes.bool,
+  /** Text speed appearing */
+  speed: PropTypes.number
 };
 
 TextTyping.defaultProps = {
   component: 'h1',
   showBlink: true,
   colorText: '#FFF',
-  colorTyping: '#0075D7'
+  colorTyping: '#0075D7',
+  speed: 500
 };
 
 export default TextTyping;

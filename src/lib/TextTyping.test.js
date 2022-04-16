@@ -1,24 +1,20 @@
 import React from 'react';
-import { render, cleanup, getByText } from '@testing-library/react';
+import { screen, render, cleanup, getByText, waitFor } from '@testing-library/react';
 import TextTyping from './TextTyping';
 
-afterEach(cleanup);
-
 describe('TextTyping Component', () => {
-  it('should render component', () => {
+  it('should render component', async () => {
     const text = 'rice';
-    const { container } = createComponent({ text });
-
-    expect(container.firstChild).toBeDefined();
-    expect(getByText(container, text)).toBeDefined();
+    createComponent({ text });
+    await waitFor(() => screen.getByText(text));
+    expect(screen.getByText(text)).toBeDefined();
   });
 
-  it('should render component with not show blink', () => {
+  it('should render component with not show blink', async () => {
     const text = 'rice';
-
-    const { container } = createComponent({ showBlink: false, text });
-    expect(container.firstChild).toBeDefined();
-    expect(getByText(container, text)).toBeDefined();
+    createComponent({ showBlink: false, text });
+    await waitFor(() => screen.getByText(text));
+    expect(screen.getByText(text)).toBeDefined();
   });
 });
 
@@ -28,6 +24,7 @@ function createComponent(props = {}) {
     showBlink: true,
     colorText: '#FFF',
     colorTyping: '#0075D7',
+    speed: 1,
     ...props
   };
 

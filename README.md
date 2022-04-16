@@ -8,8 +8,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/issues)
 [![GitHub stars](https://img.shields.io/github/stars/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/stargazers)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FOda2%2Freact-text-typing.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FOda2%2Freact-text-typing?ref=badge_shield)
-[![Dependencies](https://badgen.net/david/dep/Oda2/react-text-typing)](https://badgen.net/david/dep/Oda2/react-text-typing)
-
 [![Edit admiring-sun-5qry6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/admiring-sun-5qry6?fontsize=14&hidenavigation=1&theme=dark)
 
 ## Installation

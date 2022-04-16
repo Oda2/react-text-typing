@@ -76,6 +76,9 @@ pids
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
+# Cypress
+cypress/videos
+
 # Yarn only
 package-lock.json
 

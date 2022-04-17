@@ -1,5 +1,13 @@
 version: 2.1
 
+orbs:
+  cypress: cypress-io/cypress@1.29.0
+
+executors:
+  with-chrome:
+    docker:
+      - image: 'cypress/browsers:node14.17.6-chrome100-ff98'
+
 defaults: &defaults
   working_directory: ~/repo
   docker:
@@ -81,14 +89,23 @@ workflows:
           requires:
             - build
             - lint
+      - cypress/run:
+          executor: with-chrome
+          browser: chrome
+          yarn: true
+          start: yarn start
+          wait-on: 'http://localhost:3000'
+          no-workspace: true
+          record: true
       - deploy:
           requires:
             - test
           filters:
             tags:
-              only: /^v.*/
+              only: /^*/
             branches:
               ignore: /.*/
+      
 
 notify:
   webhooks:

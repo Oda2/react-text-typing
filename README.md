@@ -1,5 +1,6 @@
-# React text Typing
+# React text typing
 
+> Component that performs the effect of writing
 
 [![CircleCI](https://circleci.com/gh/Oda2/react-text-typing.svg?style=shield)](https://circleci.com/gh/Oda2/react-text-typing)
 [![Coverage Status](https://coveralls.io/repos/github/Oda2/react-text-typing/badge.svg?branch=master)](https://coveralls.io/github/Oda2/react-text-typing?branch=master)
@@ -8,6 +9,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/issues)
 [![GitHub stars](https://img.shields.io/github/stars/Oda2/react-text-typing)](https://github.com/Oda2/react-text-typing/stargazers)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FOda2%2Freact-text-typing.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FOda2%2Freact-text-typing?ref=badge_shield)
+[![react-text-typing](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/mp85fc/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/mp85fc/runs)
 [![Edit admiring-sun-5qry6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/admiring-sun-5qry6?fontsize=14&hidenavigation=1&theme=dark)
 
 ## Installation
@@ -21,7 +23,7 @@ $ yarn add react-text-typing
 ```
 
 ## Demo
-![Exemple](./docs/example.gif)
+![Exemple](https://raw.githubusercontent.com/Oda2/react-text-typing/main/docs/example.gif)
 
 ## Examples
 

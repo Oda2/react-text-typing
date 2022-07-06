@@ -1,6 +1,6 @@
 {
   "name": "react-text-typing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "react",
-    "library"
+    "library",
+    "styled-components"
   ],
   "bugs": {
     "url": "https://github.com/oda2/react-text-typing/issues"
@@ -60,7 +61,7 @@
     ]
   },
   "dependencies": {
-    "react-jss": "^10.9.0"
+    "styled-components": "^5.3.5"
   },
   "jest": {
     "testMatch": [

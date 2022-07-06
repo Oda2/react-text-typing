@@ -1,9 +1,45 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { createUseStyles } from 'react-jss';
+import styled, { keyframes } from 'styled-components';
+
+const blinking = keyframes`
+0% {
+  border-color: transparent;
+};
+  
+50% {
+  border-color: black;
+}
+`;
+
+const loading = keyframes`
+0% {
+  max-width: 0%;
+}
+`;
+
+const TextRoot = styled.span`
+position: relative;
+color: ${props => props.colorText};
+font-size: 5em;
+margin: 0;
+padding: 0;
+border-right: .1em solid;
+animation: ${blinking} 0.8s linear infinite;
+
+&::before {
+  content: '${props => props.internalText}';
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: ${loading} ${props => props.timeTyping}s steps(80);
+  max-width: 100%;
+  color: ${props => props.colorTyping};
+}
+`;
+
 
 const TextTyping = ({ text, showBlink, speed, component: Component, ...props }) => {
-  const classes = useStyles({ ...props });
   const [internalText, setInternalText] = useState('');
   const timer = useRef(null);
 
@@ -19,56 +55,20 @@ const TextTyping = ({ text, showBlink, speed, component: Component, ...props }) 
       }
     }, speed);
 
-    return () => {};
+    return () => { };
   }, [text]);
 
   return (
-    <Component
-      className={`${classes.text} ${showBlink ? classes.blink : ''}`}
-      data-text={internalText}
+    <TextRoot
+      as={Component}
+      data-text={text}
+      internalText={internalText}
       {...props}
     >
       {internalText}
-    </Component>
+    </TextRoot>
   );
 };
-
-const useStyles = createUseStyles({
-  text: {
-    position: 'relative',
-    color: props => props.colorText,
-    fontSize: '5em',
-    '&:before': {
-      content: 'attr(data-text)',
-      position: 'absolute',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      animation: '$loading 5s steps(80)',
-      maxWidth: '100%',
-      color: props => props.colorTyping
-    }
-  },
-  '@keyframes typing': {
-    from: { width: 0 }
-  },
-  '@keyframes blinking': {
-    '0%': {
-      borderColor: 'transparent'
-    },
-    '50%': {
-      borderColor: 'black'
-    }
-  },
-  '@keyframes loading': {
-    '0%': { maxWidth: 0 }
-  },
-  blink: {
-    margin: 0,
-    padding: 0,
-    borderRight: '.1em solid',
-    animation: '$blinking 0.8s linear infinite'
-  }
-});
 
 TextTyping.propTypes = {
   /** Text to be demonstrated in the component */
@@ -82,7 +82,9 @@ TextTyping.propTypes = {
   /** Show flashing text icon */
   showBlink: PropTypes.bool,
   /** Text speed appearing */
-  speed: PropTypes.number
+  speed: PropTypes.number,
+  /** Time typing in animation */
+  timeTyping: PropTypes.number,
 };
 
 TextTyping.defaultProps = {
@@ -90,7 +92,8 @@ TextTyping.defaultProps = {
   showBlink: true,
   colorText: '#FFF',
   colorTyping: '#0075D7',
-  speed: 500
+  speed: 500,
+  timeTyping: 10
 };
 
 export default TextTyping;

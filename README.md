@@ -43,13 +43,6 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-## NPM Statistics
-
-Download stats for this NPM package
-
-[![NPM](https://nodei.co/npm/react-text-typing.png)](https://nodei.co/npm/react-text-typing/)
-
-
 ## License
 Licensed under [MIT](https://github.com/Oda2/react-text-typing/blob/master/LICENSE)
 

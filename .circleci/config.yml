@@ -1,17 +1,17 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@1.29.0
+  cypress: cypress-io/cypress@2.2.0
 
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers:node14.17.6-chrome100-ff98'
+      - image: 'cypress/browsers:node18.6.0-chrome105-ff104'
 
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:16.14.1
+    - image: cimg/node:lts
 
 commands:
   install_js:

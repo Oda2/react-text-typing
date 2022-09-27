@@ -89,8 +89,8 @@ workflows:
           requires:
             - build
             - lint
-      - cypress/install
       - cypress/run:
+          install-command: yarn install --frozen-lockfile
           executor: with-chrome
           browser: chrome
           yarn: true

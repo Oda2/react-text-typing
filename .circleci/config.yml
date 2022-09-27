@@ -98,8 +98,6 @@ workflows:
           wait-on: 'http://localhost:3000'
           no-workspace: true
           record: true
-          requires:
-            - cypress/install
       - deploy:
           requires:
             - test

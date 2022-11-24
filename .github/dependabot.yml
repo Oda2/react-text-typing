@@ -6,22 +6,3 @@ updates:
     interval: weekly
     time: "09:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: cypress
-    versions:
-    - 6.3.0
-    - 6.5.0
-    - 7.0.1
-  - dependency-name: eslint
-    versions:
-    - 7.19.0
-    - 7.22.0
-  - dependency-name: react-jss
-    versions:
-    - 10.6.0
-  - dependency-name: ini
-    versions:
-    - 1.3.7
-  - dependency-name: "@testing-library/react"
-    versions:
-    - 11.2.3

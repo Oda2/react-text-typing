@@ -61,7 +61,7 @@
     ]
   },
   "dependencies": {
-    "styled-components": "^6.0.2"
+    "styled-components": "^6.0.3"
   },
   "jest": {
     "testMatch": [

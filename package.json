@@ -1,6 +1,6 @@
 {
   "name": "react-text-typing",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,31 +22,59 @@
   "bugs": {
     "url": "https://github.com/oda2/react-text-typing/issues"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "start": "react-dependency-scripts start",
-    "build": "react-dependency-scripts build",
+    "start": "tsc -w",
+    "dev": "yarn storybook",
+    "storybook": "storybook dev -p 6006",
+    "build": "tsc -p .",
+    "build:copy": "cp -a dist/. .",
     "lint": "eslint .",
-    "test": "react-dependency-scripts test",
-    "coverage": "yarn test --coverage",
+    "types": "npm-dts generate -o index.d.ts -L error",
+    "test": "jest --watch",
+    "coverage": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "cypress": "$(yarn bin)/cypress"
+    "cypress": "$(npm bin)/cypress",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.9",
+    "@storybook/addon-essentials": "^7.2.3",
+    "@storybook/addon-interactions": "^7.2.3",
+    "@storybook/addon-links": "^7.2.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.2.3",
+    "@storybook/react": "^7.2.3",
+    "@storybook/react-vite": "^7.2.3",
+    "@storybook/testing-library": "^0.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.3",
+    "@types/prop-types": "^15.7.5",
+    "@types/react": "^18.2.20",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "coveralls": "^3.1.1",
-    "cypress": "^12.17.2",
-    "eslint": "^8.46.0",
+    "cypress": "^12.17.3",
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
+    "npm-dts": "^1.3.12",
+    "prettier": "^3.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dependency-scripts": "^1.0.6",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "storybook": "^7.2.3",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   },
   "browserslist": {
     "production": [
@@ -61,19 +89,6 @@
     ]
   },
   "dependencies": {
-    "styled-components": "^6.0.5"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>src/lib/**/*.test.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
+    "styled-components": "^6.0.7"
   }
 }

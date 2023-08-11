@@ -1,0 +1,28 @@
+name: Testing
+
+on: [pull_request, push]
+
+jobs:
+  lint:
+    name: Check code style
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+  test:
+    name: Testing Application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run coverage

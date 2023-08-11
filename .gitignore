@@ -36,6 +36,7 @@ size-snapshot.json
 
 # production
 /dist
+/storybook-static
 
 # next.js build output
 .next
@@ -79,8 +80,8 @@ pids
 # Cypress
 cypress/videos
 
-# Yarn only
-package-lock.json
+# NPM only
+yarn.lock
 
 # Other
 .idea/

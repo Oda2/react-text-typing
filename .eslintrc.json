@@ -1,5 +1,10 @@
 {
-  "extends": ["plugin:react/recommended", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible",
+    "plugin:you-dont-need-momentjs/recommended"
+  ],
   "settings": {
     "react": {
       "version": "detect"

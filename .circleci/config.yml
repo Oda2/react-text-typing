@@ -6,12 +6,12 @@ orbs:
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers:node16.17.0-chrome106'
+      - image: 'cypress/browsers:node18.12.0-chrome107'
 
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:16.18
+    - image: cimg/node:lts
 
 commands:
   install_js:

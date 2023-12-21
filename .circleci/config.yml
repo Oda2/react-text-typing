@@ -11,7 +11,7 @@ executors:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:16.18
+    - image: cimg/node:lts
 
 commands:
   install_js:

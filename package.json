@@ -1,9 +1,9 @@
 {
   "name": "react-text-typing",
   "version": "0.4.0",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "homepage": "https://renato-oda2.gitbook.io/react-text-typing",
   "license": "MIT",
   "author": {
@@ -22,60 +22,80 @@
   "bugs": {
     "url": "https://github.com/oda2/react-text-typing/issues"
   },
-  "files": [
-    "dist"
+  "sideEffects": [
+    "**/*.css"
   ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./css": "./dist/style.css"
+  },
   "scripts": {
-    "start": "react-dependency-scripts start",
-    "build": "react-dependency-scripts build",
-    "lint": "eslint .",
-    "test": "react-dependency-scripts test",
-    "coverage": "yarn test --coverage",
+    "dev": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "cypress": "$(yarn bin)/cypress"
+    "build": "storybook build",
+    "build:lib": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier . --write --ignore-unknown",
+    "cypress": "cypress"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.3",
+    "@storybook/addon-actions": "^7.6.6",
+    "@storybook/addon-essentials": "^7.6.6",
+    "@storybook/blocks": "^7.6.6",
+    "@storybook/builder-vite": "^7.6.6",
+    "@storybook/react": "^7.6.6",
+    "@storybook/react-vite": "^7.6.6",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/styled-components": "^5.1.34",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "@vitest/coverage-v8": "^1.1.0",
+    "@vitest/ui": "^1.1.0",
+    "autoprefixer": "^10.4.16",
     "coveralls": "^3.1.1",
     "cypress": "^13.6.1",
     "eslint": "^8.56.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest-dom": "^5.1.0",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
-    "eslint-plugin-you-dont-need-momentjs": "^1.6.0",
-    "prop-types": "^15.8.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "^0.6.15",
+    "jsdom": "^23.0.1",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
     "react": "^18.2.0",
-    "react-dependency-scripts": "^1.0.6",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.6",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.6.4",
+    "vitest": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
-    "styled-components": "^6.0.7"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>src/lib/**/*.test.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
+    "styled-components": "^6.1.2"
   }
 }

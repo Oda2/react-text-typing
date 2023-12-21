@@ -17,7 +17,7 @@
   ],
   "plugins": ["jest-dom"],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["dist"],
+  "ignorePatterns": ["dist", "cypress"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off"
   },

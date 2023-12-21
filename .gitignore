@@ -79,8 +79,8 @@ pids
 # Cypress
 cypress/videos
 
-# Yarn only
-package-lock.json
+# NPM only
+yarn.lock
 
 # Other
 .idea/
@@ -93,3 +93,4 @@ psd
 thumb
 sketch
 Thumbs.db
+storybook-static

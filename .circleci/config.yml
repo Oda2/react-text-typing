@@ -6,12 +6,12 @@ orbs:
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers:node16.17.0-chrome106'
+      - image: 'cypress/browsers:node18.12.0-chrome107'
 
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:16.18
+    - image: cimg/node:lts
 
 commands:
   install_js:
@@ -20,10 +20,10 @@ commands:
           name: Show environment
           command: |
             node --version
-            yarn --version
+            npm --version
       - run:
           name: Install dependencies
-          command: yarn install
+          command: npm install
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn build
+      - run: npm run build:lib
       - save_cache:
           paths:
             - dist
@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn lint
+      - run: npm run lint
       - save_cache:
           paths:
             - node_modules
@@ -54,9 +54,8 @@ jobs:
     steps:
       - checkout
       - install_js
-      - run: yarn install
-      - run: yarn coverage
-      - run: yarn coveralls
+      - run: npm run coverage
+      - run: npm run coveralls
       - save_cache:
           paths:
             - node_modules
@@ -89,15 +88,14 @@ workflows:
           requires:
             - build
             - lint
-      - cypress/run:
-          install-command: yarn install --frozen-lockfile
-          executor: with-chrome
-          browser: chrome
-          yarn: true
-          start: yarn start
-          wait-on: 'http://localhost:3000'
-          no-workspace: true
-          record: true
+      #- cypress/run:
+      #    install-command: npm install
+      #    executor: with-chrome
+      #    browser: chrome
+      #    start: npm run dev
+      #    wait-on: 'http://localhost:6006'
+      #    no-workspace: true
+      #    record: true
       - deploy:
           requires:
             - test

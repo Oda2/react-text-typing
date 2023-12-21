@@ -30,6 +30,7 @@ export default defineConfig({
     coverage: {
       all: false,
       enabled: true,
+      reporter: ['text', 'lcov'],
     },
   },
 });

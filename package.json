@@ -55,7 +55,7 @@
     "@storybook/addon-actions": "^7.6.6",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/blocks": "^7.6.6",
-    "@storybook/builder-vite": "^7.6.6",
+    "@storybook/builder-vite": "^7.6.12",
     "@storybook/react": "^7.6.6",
     "@storybook/react-vite": "^7.6.6",
     "@testing-library/jest-dom": "^6.2.0",

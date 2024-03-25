@@ -52,7 +52,7 @@
     "cypress": "cypress"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.6",
+    "@storybook/addon-actions": "^8.0.4",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/blocks": "^8.0.0",
     "@storybook/builder-vite": "^7.6.12",

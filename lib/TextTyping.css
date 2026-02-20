@@ -1,0 +1,39 @@
+.text-typing {
+  position: relative;
+  color: var(--color-text, #fff);
+  font-size: var(--font-size, 5em);
+  margin: 0;
+  padding: 0;
+  border-right: 0.1em solid;
+  animation: blinking 0.8s linear infinite;
+}
+
+.text-typing::before {
+  content: var(--internal-text);
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: loading var(--time-typing, 10s) steps(80);
+  max-width: 100%;
+  color: var(--color-typing, #0075d7);
+}
+
+.text-typing.no-blink {
+  animation: none;
+}
+
+@keyframes blinking {
+  0% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: black;
+  }
+}
+
+@keyframes loading {
+  0% {
+    max-width: 0%;
+  }
+}

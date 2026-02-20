@@ -1,111 +1,106 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@2.2.0
+  cypress: cypress-io/cypress@4
 
 executors:
-  with-chrome:
+  node-executor:
     docker:
-      - image: 'cypress/browsers:node18.12.0-chrome107'
-
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: cimg/node:lts
+      - image: cimg/node:20.11.0
+    working_directory: ~/repo
 
 commands:
-  install_js:
+  install_dependencies:
     steps:
-      - run:
-          name: Show environment
-          command: |
-            node --version
-            npm --version
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+      - save_cache:
+          key: v2-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
 jobs:
-  build:
-    <<: *defaults
-    steps:
-      - checkout
-      - install_js
-      - run: npm run build:lib
-      - save_cache:
-          paths:
-            - dist
-          key: v1-dependencies-{{ checksum "package.json" }}
-
   lint:
-    <<: *defaults
+    executor: node-executor
     steps:
       - checkout
-      - install_js
+      - install_dependencies
       - run: npm run lint
-      - save_cache:
-          paths:
-            - node_modules
-            - coverage
-          key: v1-dependencies-{{ checksum "package.json" }}
 
   test:
-    <<: *defaults
+    executor: node-executor
     steps:
       - checkout
-      - install_js
+      - install_dependencies
+      - run: npm test
       - run: npm run coverage
       - run: npm run coveralls
-      - save_cache:
-          paths:
-            - node_modules
-            - coverage
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
 
-  deploy:
-    <<: *defaults
+  build:
+    executor: node-executor
     steps:
       - checkout
-      - install_js
+      - install_dependencies
+      - run: npm run build:lib
       - save_cache:
+          key: v2-build-{{ .Branch }}-{{ .Revision }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - dist
+
+  build-storybook:
+    executor: node-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm run build
+      - save_cache:
+          key: v2-storybook-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - storybook-static
+
+  deploy:
+    executor: node-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - restore_cache:
+          keys:
+            - v2-build-{{ .Branch }}-{{ .Revision }}
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: Publish package
-          command: npm publish
+          name: Publish to npm
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+            npm publish
 
 workflows:
   version: 2
-  pipeline:
+  ci:
     jobs:
-      - build
       - lint
       - test:
           requires:
-            - build
             - lint
-      #- cypress/run:
-      #    install-command: npm install
-      #    executor: with-chrome
-      #    browser: chrome
-      #    start: npm run dev
-      #    wait-on: 'http://localhost:6006'
-      #    no-workspace: true
-      #    record: true
-      - deploy:
+      - build:
           requires:
             - test
-          filters:
-            tags:
-              only: /^*/
-            branches:
-              ignore: /.*/
-      
+      - build-storybook:
+          requires:
+            - lint
 
-notify:
-  webhooks:
-    - url: http://app.fossa.io/hooks/circleci
+  release:
+    jobs:
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+            tags:
+              only: /v.*/

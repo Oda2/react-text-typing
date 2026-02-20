@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
-import { TextRoot } from "./styles";
+import "./TextTyping.css";
 
 export interface ITextTypingProps {
   text: string;
-  component?: React.ComponentType<any>;
+  component?: React.ElementType<any>;
   colorText?: string;
   colorTyping?: string;
   showBlink?: boolean;
   speed?: number;
   timeTyping?: number;
+  fontSize?: string;
+  onComplete?: () => void;
+  className?: string;
 }
 
 export const TextTyping: React.FC<ITextTypingProps> = ({
@@ -20,55 +23,74 @@ export const TextTyping: React.FC<ITextTypingProps> = ({
   colorText = "#fff",
   colorTyping = "#0075D7",
   timeTyping = 10,
+  fontSize,
+  onComplete,
+  className = "",
   ...props
 }) => {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isCompleteRef = useRef(false);
+  const textRef = useRef(text);
+
+  const reset = useCallback(() => {
+    setDisplayText("");
+    setCurrentIndex(0);
+    isCompleteRef.current = false;
+  }, []);
 
   useEffect(() => {
-    const typeNextCharacter = () => {
-      if (currentIndex < text.length) {
-        setDisplayText(prevDisplayText => prevDisplayText + text.charAt(currentIndex));
-        setCurrentIndex(prevIndex => prevIndex + 1);
+    if (textRef.current !== text) {
+      textRef.current = text;
+      reset();
+    }
+  }, [text, reset]);
+
+  useEffect(() => {
+    if (currentIndex >= text.length) {
+      if (!isCompleteRef.current) {
+        isCompleteRef.current = true;
+        onComplete?.();
       }
-    };
+      return;
+    }
 
-    const typingInterval = setInterval(typeNextCharacter, speed);
+    const typingTimeout = setTimeout(() => {
+      setDisplayText((prev) => prev + text[currentIndex]);
+      setCurrentIndex((prev) => prev + 1);
+    }, speed);
 
-    return () => clearInterval(typingInterval);
-  }, [currentIndex, text, speed]);
+    return () => clearTimeout(typingTimeout);
+  }, [currentIndex, text, speed, onComplete]);
+
+  const classes = `text-typing${showBlink ? "" : " no-blink"}${className ? ` ${className}` : ""}`;
+
+  const style = {
+    "--color-text": colorText,
+    "--color-typing": colorTyping,
+    "--internal-text": displayText,
+    "--time-typing": `${timeTyping}s`,
+    ...(fontSize && { fontSize }),
+  } as React.CSSProperties;
 
   return (
-    <TextRoot
-      as={Component}
-      data-text={text}
-      internalText={displayText}
-      colorText={colorText}
-      colorTyping={colorTyping}
-      timeTyping={timeTyping}
-      showBlink={showBlink}
-      {...props}
-    >
+    <Component className={classes} style={style} data-text={text} {...props}>
       {displayText}
-    </TextRoot>
+    </Component>
   );
 };
 
 TextTyping.propTypes = {
-  /** Text to be demonstrated in the component */
   text: PropTypes.string.isRequired,
-  /** Component to be used internally in the component */
-  component: PropTypes.func,
-  /** Text color */
+  component: PropTypes.elementType as PropTypes.Validator<React.ElementType>,
   colorText: PropTypes.string,
-  /** Background fill color */
   colorTyping: PropTypes.string,
-  /** Show flashing text icon */
   showBlink: PropTypes.bool,
-  /** Text speed appearing */
   speed: PropTypes.number,
-  /** Time typing in animation */
   timeTyping: PropTypes.number,
+  fontSize: PropTypes.string,
+  onComplete: PropTypes.func,
+  className: PropTypes.string,
 };
 
 export default TextTyping;

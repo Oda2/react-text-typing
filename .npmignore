@@ -1,15 +1,42 @@
-.*.swp
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
 ._*
 .DS_Store
-.git
-.hg
-.npmrc
-.lock-wscript
-.svn
-.wafpickle-*
-config.gypi
-CVS
-npm-debug.log
-*.log
+
+# Testing
+coverage
 *.test.js
 *.spec.js
+test
+cypress
+
+# Storybook
+.storybook
+*.stories.*
+
+# CI/CD
+.github
+.circleci
+
+# Docs
+*.md
+!README.md
+LICENSE
+SECURITY.md
+code_of_conduct.md
+
+# Dev files
+tsconfig.json
+vite.config.ts
+.eslintrc.json
+.prettierrc
+
+# Temp
+*.log
+npm-debug.log

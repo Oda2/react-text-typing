@@ -1,9 +1,10 @@
 {
   "name": "react-text-typing",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "homepage": "https://renato-oda2.gitbook.io/react-text-typing",
   "license": "MIT",
   "author": {
@@ -17,7 +18,8 @@
   "keywords": [
     "react",
     "library",
-    "styled-components"
+    "typing",
+    "animation"
   ],
   "bugs": {
     "url": "https://github.com/oda2/react-text-typing/issues"
@@ -36,66 +38,61 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./css": "./dist/style.css"
+    "./css": "./dist/style.css",
+    "./assets/logo.png": "./assets/logo.png"
   },
+  "files": [
+    "dist",
+    "assets"
+  ],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "build": "storybook build",
     "build:lib": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint .",
     "format": "prettier . --write --ignore-unknown",
     "cypress": "cypress"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^8.0.4",
-    "@storybook/addon-essentials": "^8.3.5",
-    "@storybook/blocks": "^8.3.5",
-    "@storybook/builder-vite": "^7.6.12",
-    "@storybook/react": "^8.0.4",
-    "@storybook/react-vite": "^8.0.8",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.18",
-    "@types/styled-components": "^5.1.34",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^6.20.0",
-    "@vitejs/plugin-react-swc": "^3.6.0",
-    "@vitest/coverage-v8": "^1.4.0",
-    "@vitest/ui": "^1.2.2",
-    "autoprefixer": "^10.4.18",
-    "coveralls": "^3.1.1",
-    "cypress": "^13.13.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jest-dom": "^5.2.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "eslint-plugin-storybook": "^0.11.1",
-    "jsdom": "^24.0.0",
-    "postcss": "^8.4.32",
-    "prettier": "^3.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^8.2.5",
-    "typescript": "^5.4.5",
-    "vite": "^5.4.11",
-    "vite-plugin-dts": "^3.7.3",
-    "vitest": "^1.2.2"
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-links": "^10.2.10",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^10.2.10",
+    "@storybook/react-vite": "^10.2.10",
+    "@storybook/test": "^8.6.15",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.3.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.3",
+    "@vitest/coverage-v8": "^4.0.18",
+    "cypress": "^15.10.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest-dom": "^5.5.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.0",
+    "eslint-plugin-storybook": "^10.2.10",
+    "jsdom": "^28.1.0",
+    "prettier": "^3.8.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "storybook": "^10.2.10",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
-  "dependencies": {
-    "styled-components": "^6.1.8"
-  }
+  "dependencies": {}
 }

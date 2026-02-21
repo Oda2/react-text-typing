@@ -4,23 +4,22 @@ on:
   push:
     tags:
       - '*'
-
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
-  publish:
+  build-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+
       - run: npm install -g npm@latest
       - run: npm ci
-      - run: npm run build:lib
       - run: npm test
+      - run: npm run build:lib
       - run: npm publish

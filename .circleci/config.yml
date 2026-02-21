@@ -1,0 +1,55 @@
+version: 2.1
+
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:24
+    working_directory: ~/repo
+
+commands:
+  install_dependencies:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+jobs:
+  lint:
+    executor: node-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm run lint
+
+  test:
+    executor: node-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm test
+
+  build:
+    executor: node-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm run build:lib
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - lint
+      - test:
+          requires:
+            - lint
+      - build:
+          requires:
+            - test

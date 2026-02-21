@@ -41,10 +41,9 @@ jobs:
       - run: npm test
       - run: npm run coverage
 
-      - uses: codecov/codecov-action@v4
+      - uses: coverallsapp/github-action@v2
         with:
-          files: ./coverage/lcov.info
-          fail_ci_if_error: false
+          file: ./coverage/lcov.info
 
   build:
     name: Build Library

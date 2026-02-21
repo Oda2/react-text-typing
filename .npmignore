@@ -18,6 +18,7 @@ cypress
 
 # Storybook
 .storybook
+.storybook-static
 *.stories.*
 
 # CI/CD

@@ -82,8 +82,14 @@ cypress/videos
 # NPM only
 yarn.lock
 
+# Editor directories and files
+.idea
+.vscode/
+.cursor/
+.claude/
+.windsurf/
+
 # Other
-.idea/
 *.sublime*
 .module-cache
 chrome-user-data

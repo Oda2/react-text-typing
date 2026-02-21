@@ -1,11 +1,48 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@5
+  cypress: cypress-io/cypress@latest
+
+executors:
+  cypress-executor:
+    parameters:
+      browser:
+        type: string
+        default: chrome
+    docker:
+      - image: cypress/cypress:base-20
+        environment:
+          CI: 1
+    resource_class: medium
+    working_directory: /home/circleci/project
+
+commands:
+  run-tests:
+    parameters:
+      browser:
+        type: string
+        default: chrome
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - cypress/run:
+          <<: *parameters
+
+jobs:
+  cypress:
+    executor: cypress-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - cypress/run:
+          browser: chrome
 
 workflows:
   version: 2
   ci:
     jobs:
-      - cypress/run:
-          executor: cypress/browsers
+      - cypress

@@ -11,7 +11,7 @@ export default tseslint.config(
   { ignores: ['dist', 'cypress', 'storybook-static'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: ['lib/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: 'module',

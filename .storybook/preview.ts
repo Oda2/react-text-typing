@@ -1,9 +1,9 @@
-import type { Preview } from "@storybook/react";
-import "../lib/TextTyping.css";
+import type { Preview } from '@storybook/react';
+import '../lib/TextTyping.css';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

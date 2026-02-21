@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches: [main]
-    tags: ["*"]
+    tags: ['*']
   workflow_dispatch:
 
 permissions:
@@ -24,8 +24,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: '20'
+          cache: 'npm'
 
       - run: npm ci
       - run: npm run build:lib
@@ -44,8 +44,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: '20'
+          cache: 'npm'
 
       - run: npm ci
       - run: npm run build
@@ -73,7 +73,7 @@ jobs:
 
       - uses: actions/configure-pages@v4
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: storybook-static
 

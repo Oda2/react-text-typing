@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import PropTypes from "prop-types";
-import "./TextTyping.css";
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import './TextTyping.css';
 
 export interface ITextTypingProps {
   text: string;
@@ -19,22 +18,22 @@ export const TextTyping: React.FC<ITextTypingProps> = ({
   text,
   showBlink = true,
   speed = 500,
-  component: Component = "span",
-  colorText = "#fff",
-  colorTyping = "#0075D7",
+  component: Component = 'span',
+  colorText = '#000000',
+  colorTyping = '#0075D7',
   timeTyping = 10,
   fontSize,
   onComplete,
-  className = "",
+  className = '',
   ...props
 }) => {
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const isCompleteRef = useRef(false);
   const textRef = useRef(text);
 
   const reset = useCallback(() => {
-    setDisplayText("");
+    setDisplayText('');
     setCurrentIndex(0);
     isCompleteRef.current = false;
   }, []);
@@ -63,13 +62,13 @@ export const TextTyping: React.FC<ITextTypingProps> = ({
     return () => clearTimeout(typingTimeout);
   }, [currentIndex, text, speed, onComplete]);
 
-  const classes = `text-typing${showBlink ? "" : " no-blink"}${className ? ` ${className}` : ""}`;
+  const classes = `text-typing${showBlink ? '' : ' no-blink'}${className ? ` ${className}` : ''}`;
 
   const style = {
-    "--color-text": colorText,
-    "--color-typing": colorTyping,
-    "--internal-text": displayText,
-    "--time-typing": `${timeTyping}s`,
+    '--color-text': colorText,
+    '--color-typing': colorTyping,
+    '--internal-text': displayText,
+    '--time-typing': `${timeTyping}s`,
     ...(fontSize && { fontSize }),
   } as React.CSSProperties;
 
@@ -78,19 +77,6 @@ export const TextTyping: React.FC<ITextTypingProps> = ({
       {displayText}
     </Component>
   );
-};
-
-TextTyping.propTypes = {
-  text: PropTypes.string.isRequired,
-  component: PropTypes.elementType as PropTypes.Validator<React.ElementType>,
-  colorText: PropTypes.string,
-  colorTyping: PropTypes.string,
-  showBlink: PropTypes.bool,
-  speed: PropTypes.number,
-  timeTyping: PropTypes.number,
-  fontSize: PropTypes.string,
-  onComplete: PropTypes.func,
-  className: PropTypes.string,
 };
 
 export default TextTyping;

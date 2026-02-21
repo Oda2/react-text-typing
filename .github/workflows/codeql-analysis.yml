@@ -2,7 +2,7 @@ name: CodeQL
 
 on:
   schedule:
-    - cron: "30 3 2 * *"
+    - cron: '30 3 2 * *'
   workflow_dispatch:
 
 permissions:
@@ -17,14 +17,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript-typescript"]
+        language: ['javascript-typescript']
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3

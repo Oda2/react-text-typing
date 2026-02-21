@@ -1,1 +1,1 @@
-export { default } from "./TextTyping";
+export { default } from './TextTyping';

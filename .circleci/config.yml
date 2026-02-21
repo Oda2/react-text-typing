@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@4
+  cypress: cypress-io/cypress@5
 
 executors:
   node-executor:
@@ -42,6 +42,16 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
+
+  cypress:
+    executor: cypress/browsers
+    steps:
+      - checkout
+      - install_dependencies
+      - cypress/run:
+          record: true
+          parallel: true
+          group: 'UI Tests'
 
   build:
     executor: node-executor
@@ -85,6 +95,9 @@ workflows:
     jobs:
       - lint
       - test:
+          requires:
+            - lint
+      - cypress:
           requires:
             - lint
       - build:

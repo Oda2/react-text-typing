@@ -1,4 +1,5 @@
-import { mount } from 'cypress/react18';
+import React from 'react';
+import { mount } from 'cypress/react';
 import { TextTyping } from '../../lib/TextTyping';
 import '../../lib/TextTyping.css';
 
@@ -30,7 +31,14 @@ describe('TextTyping Component', () => {
   });
 
   it('applies custom colors', () => {
-    mount(<TextTyping text="Test" colorText="#ff0000" colorTyping="#00ff00" speed={1000} />);
+    mount(
+      <TextTyping
+        text="Test"
+        colorText="#ff0000"
+        colorTyping="#00ff00"
+        speed={1000}
+      />
+    );
     cy.get('.text-typing').should('have.css', 'color', 'rgb(255, 0, 0)');
   });
 

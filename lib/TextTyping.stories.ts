@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { TextTyping, type ITextTypingProps } from "./TextTyping";
+import type { Meta, StoryObj } from '@storybook/react';
+import { TextTyping, type ITextTypingProps } from './TextTyping';
 
 const meta = {
-  title: "TextTyping",
+  title: 'TextTyping',
   component: TextTyping,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    text: { control: "text" },
-    colorText: { control: "color" },
-    colorTyping: { control: "color" },
-    showBlink: { control: "boolean" },
-    speed: { control: { type: "number", min: 10, max: 2000, step: 10 } },
-    timeTyping: { control: { type: "number", min: 1, max: 20 } },
-    fontSize: { control: "text" },
+    text: { control: 'text' },
+    colorText: { control: 'color' },
+    colorTyping: { control: 'color' },
+    showBlink: { control: 'boolean' },
+    speed: { control: { type: 'number', min: 10, max: 2000, step: 10 } },
+    timeTyping: { control: { type: 'number', min: 1, max: 20 } },
+    fontSize: { control: 'text' },
   },
 } satisfies Meta<typeof TextTyping>;
 
@@ -24,7 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultProps: ITextTypingProps = {
-  text: "Hello World!",
+  text: 'Hello World!',
   speed: 150,
 };
 
@@ -37,8 +37,8 @@ export const Default: Story = {
 export const CustomColors: Story = {
   args: {
     ...defaultProps,
-    colorText: "#ff6b6b",
-    colorTyping: "#4ecdc4",
+    colorText: '#ff6b6b',
+    colorTyping: '#4ecdc4',
   },
 };
 
@@ -59,20 +59,20 @@ export const CustomSpeed: Story = {
 export const CustomFontSize: Story = {
   args: {
     ...defaultProps,
-    fontSize: "3em",
+    fontSize: '3em',
   },
 };
 
 export const ShortText: Story = {
   args: {
-    text: "Hi!",
+    text: 'Hi!',
     speed: 200,
   },
 };
 
 export const LongText: Story = {
   args: {
-    text: "This is a longer text to demonstrate the typing animation effect.",
+    text: 'This is a longer text to demonstrate the typing animation effect.',
     speed: 100,
   },
 };
@@ -80,6 +80,6 @@ export const LongText: Story = {
 export const WithOnComplete: Story = {
   args: {
     ...defaultProps,
-    onComplete: () => console.log("Typing complete!"),
+    onComplete: () => console.log('Typing complete!'),
   },
 };

@@ -53,8 +53,8 @@ yarn add react-text-typing
 ## 🚀 Quick Start
 
 ```tsx
-import TextTyping from "react-text-typing";
-import "react-text-typing/css";
+import TextTyping from 'react-text-typing';
+import 'react-text-typing/css';
 
 function App() {
   return <TextTyping text="Hello, World!" />;
@@ -96,7 +96,7 @@ function App() {
 ### With Callback
 
 ```tsx
-<TextTyping text="Callback example" onComplete={() => console.log("Done!")} />
+<TextTyping text="Callback example" onComplete={() => console.log('Done!')} />
 ```
 
 ### Custom Component
@@ -134,14 +134,14 @@ The component includes default CSS. To customize, you can:
 
 ```css
 .text-typing {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
 }
 ```
 
 3. **Import only CSS and customize:**
 
 ```js
-import "react-text-typing/css";
+import 'react-text-typing/css';
 ```
 
 ## 🛠️ Development

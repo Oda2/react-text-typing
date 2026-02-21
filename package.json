@@ -51,7 +51,7 @@
     "cypress": "cypress"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^8.6.17",
+    "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-essentials": "^8.6.17",
     "@storybook/addon-links": "^8.6.17",
     "@storybook/react": "^8.6.17",

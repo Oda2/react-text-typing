@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "react-text-typing",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/style.css",

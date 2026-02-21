@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: cimg/node:22
+      - image: cimg/node:lts
     working_directory: ~/repo
 
 commands:

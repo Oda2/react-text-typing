@@ -5,7 +5,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "version": "0.6.1",
+  "version": "0.6.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/style.css",
@@ -40,8 +40,7 @@
     "./assets/logo.png": "./assets/logo.png"
   },
   "files": [
-    "dist",
-    "assets"
+    "dist"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",

@@ -74,7 +74,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^10.2.13",
     "jsdom": "^26.0.0",
     "prettier": "^3.4.2",
     "prop-types": "^15.8.1",

@@ -58,7 +58,7 @@
     "@storybook/addon-essentials": "^8.6.18",
     "@storybook/addon-links": "^8.6.17",
     "@storybook/react": "^8.6.17",
-    "@storybook/react-vite": "^8.6.17",
+    "@storybook/react-vite": "^10.4.6",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.0",
@@ -83,7 +83,7 @@
     "storybook": "^8.6.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.59.3",
-    "vite": "^6.4.2",
+    "vite": "^8.0.16",
     "vite-plugin-dts": "^4.3.0",
     "vitest": "^4.1.6"
   },
